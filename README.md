@@ -177,5 +177,3 @@ This is still a compact engineering project, not a production vehicle dynamics t
 - no detailed clutch, gearbox, or engine map calibration from real test data
 - no unit conversion layer or scenario file format
 - no packaging or CI pipeline yet
-
-Those limitations are acceptable in interviews if you can explain them directly and justify the simplifications.
