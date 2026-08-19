@@ -1,5 +1,7 @@
 # Vehicle Dynamics Simulation
 
+[![CI](https://github.com/mr2buzi/Vehicle-Simulator/actions/workflows/ci.yml/badge.svg)](https://github.com/mr2buzi/Vehicle-Simulator/actions/workflows/ci.yml)
+
 ## What the product is
 
 This project is a Python vehicle acceleration simulator focused on straight-line longitudinal dynamics. It lets a user configure a car's engine, gearing, tire grip, drag, and mass properties, then run a simulation that produces:
@@ -17,6 +19,14 @@ The project is designed to be demoable in two ways:
 This keeps the simulation core reusable for automated analysis as well as the desktop application.
 
 ## Architecture
+
+```mermaid
+flowchart LR
+    I[GUI or CLI inputs] --> C[Validated vehicle configuration]
+    C --> M[3-DOF longitudinal model]
+    M --> R[Simulation metrics]
+    M --> P[Plots and PDF report]
+```
 
 The codebase is now split into small modules rather than one monolithic script:
 
@@ -176,4 +186,4 @@ This is still a compact engineering project, not a production vehicle dynamics t
 - no thermal tire behavior
 - no detailed clutch, gearbox, or engine map calibration from real test data
 - no unit conversion layer or scenario file format
-- no packaging or CI pipeline yet
+- no distributable package or scenario-file format yet
