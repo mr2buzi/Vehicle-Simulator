@@ -14,7 +14,7 @@ The project is designed to be demoable in two ways:
 - a Tkinter GUI for interactive exploration
 - a CLI for repeatable, headless runs
 
-That makes it more useful in interviews than a GUI-only prototype, because the simulation core is reusable outside the desktop app.
+This keeps the simulation core reusable for automated analysis as well as the desktop application.
 
 ## Architecture
 
@@ -41,7 +41,7 @@ The runtime flow is:
 1. Parameters are loaded from GUI inputs or CLI overrides.
 2. `VehicleParameters` validates and normalizes the input set.
 3. `EngineeringModel` builds the torque map and solves the 3-DOF longitudinal system.
-4. `calculate_metrics()` derives interview-friendly outputs such as 0-60 mph and traction-limited time.
+4. `calculate_metrics()` derives reproducible outputs such as 0-60 mph and traction-limited time.
 5. `generate_pdf_report()` creates the analysis report.
 
 Module responsibilities:
@@ -59,7 +59,7 @@ Module responsibilities:
   Interactive desktop UI.
 
 - `vehicle_sim/cli.py`
-  Headless runner for scripted or interview demo use.
+  Headless runner for scripted and automated use.
 
 - `sim.py`
   Thin entrypoint for the GUI.
